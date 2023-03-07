@@ -1257,7 +1257,7 @@ void AhBot::DeleteMail(list<uint32> buffer)
         sql << "'" << *j << "'";
     }
     sql << ")";
-    CharacterDatabase.PExecute(sql.str().c_str());
+    CharacterDatabase.PExecute("%s",sql.str().c_str());
 }
 
 INSTANTIATE_SINGLETON_1( ahbot::AhBot );
