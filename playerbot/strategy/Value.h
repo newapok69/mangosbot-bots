@@ -6,6 +6,7 @@
 #include "ObjectMgr.h"
 #include "AiObject.h"
 #include "GuidPosition.h"
+#include "../ChatHelper.h"
 
 namespace ai
 {
