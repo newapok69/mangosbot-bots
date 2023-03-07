@@ -1017,7 +1017,7 @@ void RandomItemMgr::BuildItemInfoCache()
         } while (result->NextRow());
         delete result;
     }
-    sLog.outString("Loaded %d vendor items...", vendorItems.size());
+    sLog.outString("Loaded %zu vendor items...", vendorItems.size());
 
     // calculate drop source
     sLog.outString("Loading loot templates...");
@@ -1047,7 +1047,7 @@ void RandomItemMgr::BuildItemInfoCache()
                 dropMap->insert(make_pair(lItem.itemid, -sEntry));
     }
 
-    sLog.outString("Loaded %d loot templates...", dropMap->size());
+    sLog.outString("Loaded %lu loot templates...", dropMap->size());
 
     sLog.outString("Calculating stat weights for %d items...", sItemStorage.GetMaxEntry());
     BarGoLink bar(sItemStorage.GetMaxEntry());
@@ -1283,7 +1283,7 @@ void RandomItemMgr::BuildItemInfoCache()
                 else
                 {
                     cacheInfo->source = ITEM_SOURCE_DROP;
-                    sLog.outDetail("Item: %d, source: creatures drop, number: %d", proto->ItemId, creatures.size());
+                    sLog.outDetail("Item: %d, source: creatures drop, number: %zu", proto->ItemId, creatures.size());
                 }
             }
         }
@@ -1302,7 +1302,7 @@ void RandomItemMgr::BuildItemInfoCache()
                 else
                 {
                     cacheInfo->source = ITEM_SOURCE_DROP;
-                    sLog.outDetail("Item: %d, source: gameobjects, number: %d", proto->ItemId, gameobjects.size());
+                    sLog.outDetail("Item: %d, source: gameobjects, number: %zu", proto->ItemId, gameobjects.size());
                 }
             }
         }
@@ -2674,7 +2674,7 @@ vector<uint32> RandomItemMgr::GetUpgradeList(Player* player, uint32 specId, uint
     }
 
     if (listItems.size())
-        sLog.outString("New Items: %d, Old item:%d, New items max: %d", listItems.size(), oldStatWeight, closestUpgradeWeight);
+        sLog.outString("New Items: %zu, Old item:%d, New items max: %d", listItems.size(), oldStatWeight, closestUpgradeWeight);
 
     // sort by stat weight
     sort(listItems.begin(), listItems.end(), [specId](int a, int b) { return sRandomItemMgr.GetStatWeight(a, specId) <= sRandomItemMgr.GetStatWeight(b, specId); });
