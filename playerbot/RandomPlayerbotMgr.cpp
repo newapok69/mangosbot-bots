@@ -870,7 +870,7 @@ uint32 RandomPlayerbotMgr::AddRandomBots()
                 sLog.outError("Not enough accounts to meet selection criteria. A random selection of bots was activated to fill the server.");
 
                 if (sPlayerbotAIConfig.syncLevelWithPlayers)
-                    sLog.outError("Only bots between level %d and %d are selected to sync with player level", (currentAvgLevel + 1 < wantedAvgLevel) ? wantedAvgLevel : 1, maxLevel);
+                    sLog.outError("Only bots between level %f and %d are selected to sync with player level", (currentAvgLevel + 1 < wantedAvgLevel) ? wantedAvgLevel : 1, maxLevel);
 
                 ChatHelper chat(nullptr);
 
