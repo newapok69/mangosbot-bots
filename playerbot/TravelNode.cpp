@@ -2465,7 +2465,7 @@ void TravelNodeMap::saveNodeStore()
         string name = node->getName();
         name.erase(remove(name.begin(), name.end(), '\''), name.end());
 
-        PlayerbotDatabase.PExecute("INSERT INTO `ai_playerbot_travelnode` (`id`, `name`, `map_id`, `x`, `y`, `z`, `linked`) VALUES ('%lu', '%s', '%d', '%f', '%f', '%f', '%d%')"
+        PlayerbotDatabase.PExecute("INSERT INTO `ai_playerbot_travelnode` (`id`, `name`, `map_id`, `x`, `y`, `z`, `linked`) VALUES ('%u', '%s', '%d', '%f', '%f', '%f', '%d')"
             , i, name.c_str(), node->getMapId(), node->getX(), node->getY(), node->getZ(), (node->isLinked() ? 1 : 0));
 
         saveNodes.insert(make_pair(node, i));
@@ -2486,7 +2486,7 @@ void TravelNodeMap::saveNodeStore()
             {
                 TravelNodePath* path = link.second;
 
-                PlayerbotDatabase.PExecute("INSERT INTO `ai_playerbot_travelnode_link` (`node_id`, `to_node_id`,`type`,`object`,`distance`,`swim_distance`, `extra_cost`,`calculated`, `max_creature_0`,`max_creature_1`,`max_creature_2`) VALUES ('%lu','%lu', '%d', '%lu', '%f', '%f', '%f', '%d', '%d', '%d', '%d')"
+                PlayerbotDatabase.PExecute("INSERT INTO `ai_playerbot_travelnode_link` (`node_id`, `to_node_id`,`type`,`object`,`distance`,`swim_distance`, `extra_cost`,`calculated`, `max_creature_0`,`max_creature_1`,`max_creature_2`) VALUES ('%u','%u', '%d', '%lu', '%f', '%f', '%f', '%d', '%d', '%d', '%d')"
                     , i
                     , saveNodes.find(link.first)->second
                     , uint8(path->getPathType())
@@ -2506,7 +2506,7 @@ void TravelNodeMap::saveNodeStore()
                 for (uint32 j = 0; j < ppath.size(); j++)
                 {
                     WorldPosition point = ppath[j];
-                    PlayerbotDatabase.PExecute("INSERT INTO `ai_playerbot_travelnode_path` (`node_id`, `to_node_id`, `nr`, `map_id`, `x`, `y`, `z`) VALUES ('%lu', '%lu', '%d','%d', '%f', '%f', '%f')"
+                    PlayerbotDatabase.PExecute("INSERT INTO `ai_playerbot_travelnode_path` (`node_id`, `to_node_id`, `nr`, `map_id`, `x`, `y`, `z`) VALUES ('%u', '%u', '%d','%d', '%f', '%f', '%f')"
                         , i
                         , saveNodes.find(link.first)->second
                         , j
