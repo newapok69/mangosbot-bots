@@ -1284,7 +1284,7 @@ void PlayerbotFactory::InitEquipment(bool incremental)
             if (slot == EQUIPMENT_SLOT_BODY || slot == EQUIPMENT_SLOT_TABARD)
             {
                 vector<uint32> ids = sRandomItemMgr.Query(60, 1, 1, slot, 1);
-                sLog.outDetail("Bot #%d %s:%d <%s>: %u possible items for slot %d", bot->GetGUIDLow(), bot->GetTeam() == ALLIANCE ? "A" : "H", bot->GetLevel(), bot->GetName(), ids.size(), slot);
+                sLog.outDetail("Bot #%d %s:%d <%s>: %zu possible items for slot %d", bot->GetGUIDLow(), bot->GetTeam() == ALLIANCE ? "A" : "H", bot->GetLevel(), bot->GetName(), ids.size(), slot);
 
                 if (!ids.empty()) ahbot::Shuffle(ids);
 
@@ -1383,7 +1383,7 @@ void PlayerbotFactory::InitEquipment(bool incremental)
                     }
                 }
 
-                sLog.outDetail("Bot #%d %s:%d <%s>: %u possible items for slot %d", bot->GetGUIDLow(), bot->GetTeam() == ALLIANCE ? "A" : "H", bot->GetLevel(), bot->GetName(), ids.size(), slot);
+                sLog.outDetail("Bot #%d %s:%d <%s>: %zu possible items for slot %d", bot->GetGUIDLow(), bot->GetTeam() == ALLIANCE ? "A" : "H", bot->GetLevel(), bot->GetName(), ids.size(), slot);
 
                 if (incremental || !progressiveGear)
                 {
@@ -2776,7 +2776,7 @@ void PlayerbotFactory::InitReagents()
         ItemPrototype const* proto = sObjectMgr.GetItemPrototype(*i);
         if (!proto)
         {
-            sLog.outError("No reagent (ItemId %d) found for bot %d (Class:%d)", i, bot->GetGUIDLow(), bot->getClass());
+            sLog.outError("No reagent (ItemId %zu) found for bot %d (Class:%d)", i, bot->GetGUIDLow(), bot->getClass());
             continue;
         }
 
