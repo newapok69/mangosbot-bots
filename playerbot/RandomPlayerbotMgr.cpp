@@ -343,7 +343,7 @@ inline ostringstream generate_ostringstream(Unit* bot, vector<pair<int, int>>& l
     out << bot->GetOrientation() << ",";
     out << to_string(bot->getRace()) << ",";
     out << to_string(bot->getClass()) << ",";
-    out << is_sqDist_greater_200 ? "1" : "0";
+    out << (is_sqDist_greater_200 ? "1" : "0");
     return out;
 }
 
