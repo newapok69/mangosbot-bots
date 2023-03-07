@@ -784,7 +784,7 @@ void TravelMgr::loadAreaLevels()
     string query = "SELECT id, level FROM ai_playerbot_zone_level";
 
     {
-        QueryResult* result = PlayerbotDatabase.PQuery(query.c_str());
+        QueryResult* result = PlayerbotDatabase.PQuery("%s",query.c_str());
 
         vector<uint32> loadedAreas;
 
